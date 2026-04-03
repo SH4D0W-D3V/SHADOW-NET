@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://selatpb4u8oh"]
+
+[ext_resource type="FontFile" uid="uid://bg1bb3slcxa8n" path="res://res/JetBrainsMono-VariableFont_wght.ttf" id="1_l76nx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7fam"]
+bg_color = Color(0.06666667, 0.08627451, 0.12941177, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+Button/colors/font_hover_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+Button/colors/font_pressed_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_l76nx")
+Button/styles/hover = SubResource("StyleBoxFlat_e7fam")
+Button/styles/normal = SubResource("StyleBoxFlat_e7fam")
+Button/styles/pressed = SubResource("StyleBoxFlat_e7fam")

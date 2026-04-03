@@ -1,0 +1,393 @@
+[gd_scene format=3 uid="uid://p6cmrgnsbi4n"]
+
+[ext_resource type="Script" uid="uid://c4muj84ngkuqt" path="res://scripts/home_screen.gd" id="1_xof06"]
+[ext_resource type="FontFile" uid="uid://bg1bb3slcxa8n" path="res://res/JetBrainsMono-VariableFont_wght.ttf" id="2_d6d8u"]
+[ext_resource type="Theme" uid="uid://selatpb4u8oh" path="res://Themes/Buttons.tres" id="3_db1cy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xof06"]
+bg_color = Color(0.11372549, 0.13725491, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db1cy"]
+bg_color = Color(0.06666667, 0.08627451, 0.12941177, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6d8u"]
+bg_color = Color(0.08627451, 0.11372549, 0.16470589, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8qlv"]
+bg_color = Color(0.08627451, 0.11372549, 0.16470589, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yufik"]
+bg_color = Color(0.06666667, 0.08627451, 0.12941177, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh8n3"]
+bg_color = Color(0.06666667, 0.08627451, 0.12941177, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfiwk"]
+bg_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ianbu"]
+bg_color = Color(1, 0.53333336, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo0pi"]
+bg_color = Color(0.08627451, 0.11372549, 0.16470589, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="HomeScreen" type="Control" unique_id=53284576]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xof06")
+
+[node name="Background" type="Panel" parent="." unique_id=1397535247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xof06")
+
+[node name="ResourcePanel" type="Control" parent="." unique_id=1707414257]
+layout_mode = 1
+anchor_left = 0.029000001
+anchor_top = 0.13100001
+anchor_right = 0.22200002
+anchor_bottom = 0.84300005
+offset_left = -0.6800003
+offset_top = 0.519989
+offset_right = 0.75997925
+offset_bottom = -0.44006348
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="ResourcePanel" unique_id=35200433]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db1cy")
+
+[node name="lighter background" type="Panel" parent="ResourcePanel" unique_id=1108551218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 67.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6d8u")
+
+[node name="Label" type="Label" parent="ResourcePanel" unique_id=1274224237]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08400001
+anchor_right = 0.89000005
+offset_left = 7.751997
+offset_top = 18.0
+offset_right = -0.08001709
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 30
+text = "Resources"
+
+[node name="Dollars" type="Label" parent="ResourcePanel" unique_id=1274028767]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 94.0
+offset_right = 146.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 25
+text = "Dollars"
+vertical_alignment = 1
+
+[node name="Blog" type="Control" parent="." unique_id=2076860248]
+layout_mode = 1
+anchor_left = 0.24300002
+anchor_top = 0.133
+anchor_right = 0.77800006
+anchor_bottom = 0.837
+offset_left = 0.43997192
+offset_top = 0.3600006
+offset_right = 0.23986816
+offset_bottom = 0.039978027
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background2" type="Panel" parent="Blog" unique_id=924397437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db1cy")
+
+[node name="lighter background2" type="Panel" parent="Blog" unique_id=576352032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u8qlv")
+
+[node name="Blog" type="Label" parent="Blog" unique_id=1259329660]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 17.0
+offset_right = 104.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 30
+text = "Blog"
+
+[node name="type" type="Button" parent="Blog" unique_id=470062456]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_db1cy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yufik")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yufik")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yh8n3")
+text = "TYPE STUFF!!!!!"
+
+[node name="ProgressBar" type="ProgressBar" parent="Blog" unique_id=1528634952]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.021000002
+anchor_top = 0.12100001
+anchor_right = 0.97800004
+anchor_bottom = 0.172
+offset_left = 0.43299866
+offset_top = 0.039993286
+offset_right = -0.4060669
+offset_bottom = 0.27999878
+theme_override_styles/background = SubResource("StyleBoxFlat_hfiwk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ianbu")
+max_value = 200.0
+show_percentage = false
+
+[node name="AutoCont" type="Control" parent="Blog" unique_id=255863885]
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = 0.192
+anchor_right = 0.9760001
+anchor_bottom = 0.36400002
+offset_left = 0.32499886
+offset_top = 0.08000183
+offset_right = -0.35205078
+offset_bottom = 0.35998535
+
+[node name="Label" type="Label" parent="Blog/AutoCont" unique_id=335153404]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.076000005
+anchor_bottom = 0.282
+offset_left = 19.0
+offset_top = 0.043999672
+offset_right = 79.0
+offset_bottom = 0.057998657
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 20
+text = "Auto:"
+
+[node name="Auto" type="Button" parent="Blog/AutoCont" unique_id=464251447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_db1cy")
+text = "Auto - $120"
+
+[node name="Upgrade" type="Button" parent="Blog/AutoCont" unique_id=1485195740]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.36600003
+anchor_right = 0.492
+anchor_bottom = 1.0
+offset_top = 0.05399704
+offset_right = -0.1920166
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_db1cy")
+text = "Upgrade"
+
+[node name="Blog Lv" type="Control" parent="Blog" unique_id=737902716]
+layout_mode = 1
+anchor_left = 0.029000001
+anchor_top = 0.41400003
+anchor_right = 0.96900004
+anchor_bottom = 0.596
+offset_left = 0.21699905
+offset_top = 0.35998535
+offset_right = -0.1630249
+offset_bottom = 0.039978027
+
+[node name="Label" type="Label" parent="Blog/Blog Lv" unique_id=331730986]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.076000005
+anchor_bottom = 0.282
+offset_left = 19.0
+offset_top = 0.043999672
+offset_right = 79.0
+offset_bottom = 0.057998657
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 20
+text = "Show ADs in Blog:"
+
+[node name="Buy Ads" type="Button" parent="Blog/Blog Lv" unique_id=1771003213]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.37
+anchor_right = 0.48600003
+anchor_bottom = 1.0
+offset_top = -0.060001373
+offset_right = 0.009979248
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_db1cy")
+text = "Buy"
+
+[node name="Upg_blog" type="Control" parent="Blog" unique_id=527957628]
+layout_mode = 1
+anchor_left = 0.030000001
+anchor_top = 0.66300005
+anchor_right = 0.96900004
+anchor_bottom = 0.845
+offset_left = 0.18999863
+offset_top = 0.1199646
+offset_right = 0.8369751
+offset_bottom = -0.2000122
+
+[node name="Label" type="Label" parent="Blog/Upg_blog" unique_id=745869054]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.076000005
+anchor_bottom = 0.282
+offset_left = 19.0
+offset_top = 0.043999672
+offset_right = 79.0
+offset_bottom = 0.057998657
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 20
+text = "Make Better Content:"
+
+[node name="upgrade2" type="Button" parent="Blog/Upg_blog" unique_id=775296285]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.37
+anchor_right = 0.48600003
+anchor_bottom = 1.0
+offset_top = -0.060001373
+offset_right = 0.009979248
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_db1cy")
+text = "Buy"
+
+[node name="Save" type="Button" parent="." unique_id=738757543]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 103.0
+theme = ExtResource("3_db1cy")
+text = "Save
+"
+
+[node name="Navigation" type="Control" parent="." unique_id=552618742]
+layout_mode = 1
+anchor_left = 0.012
+anchor_top = 0.87100005
+anchor_right = 0.98600006
+anchor_bottom = 0.98100007
+offset_left = 0.9599991
+offset_top = 0.3199463
+offset_right = 0.8798828
+offset_bottom = -0.48010254
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Navigation" unique_id=1778333138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jo0pi")
+
+[node name="HBox" type="HBoxContainer" parent="Navigation" unique_id=1569609201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 16.0
+offset_right = -17.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="cpu" type="Button" parent="Navigation/HBox" unique_id=1976978943]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_db1cy")
+text = "CPU
+"
+
+[node name="Research" type="Button" parent="Navigation/HBox" unique_id=304734056]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_db1cy")
+text = "Research
+"
+
+[connection signal="pressed" from="Blog/type" to="." method="_on_type_pressed"]
+[connection signal="pressed" from="Blog/AutoCont/Auto" to="." method="_on_auto_pressed"]
+[connection signal="pressed" from="Blog/AutoCont/Upgrade" to="." method="_on_upgrade_pressed"]
+[connection signal="pressed" from="Blog/Blog Lv/Buy Ads" to="." method="_on_buy_ads_pressed"]
+[connection signal="pressed" from="Blog/Upg_blog/upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Navigation/HBox/cpu" to="." method="_on_cpu_pressed"]
