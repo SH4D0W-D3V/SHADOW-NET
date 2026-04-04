@@ -13,6 +13,7 @@ func _ready():
 	
 func _process(_delta: float) -> void:
 	$ResourcePanel/Dollars.text = "Dollars: " + Global.format_number(Global.Dollars)
+	$ResourcePanel/Research.text = "Research: " + Global.format_number(Global.Research_points)
 	if Global.Auto_type == true:
 		$Blog/ProgressBar.value = Global.blog_bytes
 
@@ -83,3 +84,6 @@ func Update_all_txt():
 		$Blog/Upg_blog/upgrade2.text = "You are making the best content!"
 	$"Blog/Blog Lv/Label".text = "Show ADs in Blog: lv-" + str(Global.blog_level)
 	$Blog/AutoCont/Label.text = "Auto: lv-" + str(Global.Auto_type_level)
+
+func _on_research_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Research.tscn")

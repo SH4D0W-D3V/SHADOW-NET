@@ -336,7 +336,7 @@ theme_override_fonts/font = ExtResource("2_dopw7")
 theme_override_font_sizes/font_size = 30
 text = "Research"
 
-[node name="CheckBox" type="CheckBox" parent="ResourcesCard/card2" unique_id=1967505766 groups=["Checkbox"]]
+[node name="CheckBox2" type="CheckBox" parent="ResourcesCard/card2" unique_id=1967505766 groups=["Checkbox"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.086
@@ -397,4 +397,5 @@ offset_bottom = 834.0
 
 [connection signal="pressed" from="Container/upgrade" to="." method="_on_upgrade_pressed"]
 [connection signal="pressed" from="ResourcesCard/card1/upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="ResourcesCard/card2/upgrade2" to="." method="_on_upgrade_2_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

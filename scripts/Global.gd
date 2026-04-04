@@ -18,19 +18,24 @@ const  blog_purchase = [600000, 4000000000, 2000000000000, 1000000000000000]
 var Cpu: bool = false
 var Selected
 var level = 0
-var Cpu_states: Array = [false]
+var Cpu_states: Array = [false, false]
 var ClockCycles = 128 * pow(2, level)
 var Cpu_Dollar = 0
+var Cpu_Research_lv:int = 0
+#Research
+var Research_points:float = 0
 
 #----SetUp On Play----
 func _ready() -> void:
 	load_game()
 	setup_auto_save_timer()
+	print(str(Cpu_states[1]))
 #----Save and load data----
 func save_game(): 
 	if reset_mode:
 		clear_save()
 		return
+	print(str(Cpu_states[1]))
 	var save_data = {
 		#Resources
 		"Dollars": Dollars,
@@ -45,7 +50,10 @@ func save_game():
 		"Selected": Selected,
 		"level": level,
 		"Cpu_states": Cpu_states,
-		"Cpu_Dollar": Cpu_Dollar
+		"Cpu_Dollar": Cpu_Dollar,
+		"Cpu_Research_lv": Cpu_Research_lv,
+		#Research
+		"Research_points": Research_points,
 	}
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -76,6 +84,9 @@ func load_game():
 	Cpu_states  = data["Cpu_states"]
 	ClockCycles = 128 * pow(2, level)
 	Cpu_Dollar = data["Cpu_Dollar"]
+	Cpu_Research_lv = data["Cpu_Research_lv"]
+	#Research
+	Research_points = data["Research_points"]
 
 func clear_save():
 	if FileAccess.file_exists("user://savegame.json"):
@@ -102,6 +113,8 @@ func _process(delta: float) -> void:
 	if blog_bytes >= blog_dat[blog_type]*2 :
 		Dollars += blog_cost[blog_type] * (blog_level + 1)
 		blog_bytes -= blog_dat[blog_type]*2
+	if Cpu_states[1] == true:
+		Research_points += 0.000001* (ClockCycles /Selected) *pow(2, Cpu_Research_lv/5)* delta
 			
 #----Easy Access Functions----
 #Format Numbers For Lables

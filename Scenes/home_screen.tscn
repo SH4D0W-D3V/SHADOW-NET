@@ -118,15 +118,37 @@ theme_override_font_sizes/font_size = 30
 text = "Resources"
 
 [node name="Dollars" type="Label" parent="ResourcePanel" unique_id=1274028767]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 94.0
-offset_right = 146.0
-offset_bottom = 154.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.12200001
+anchor_right = 0.39200002
+anchor_bottom = 0.201
+offset_left = 0.099998474
+offset_top = 0.30399323
+offset_right = 0.17599487
+offset_bottom = -0.36801147
 theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
 theme_override_fonts/font = ExtResource("2_d6d8u")
 theme_override_font_sizes/font_size = 25
 text = "Dollars"
+vertical_alignment = 1
+
+[node name="Research" type="Label" parent="ResourcePanel" unique_id=1081917449]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.24000001
+anchor_right = 0.39200002
+anchor_bottom = 0.31800002
+offset_left = 0.099998474
+offset_top = -0.32000732
+offset_right = 0.17599487
+offset_bottom = -0.22401428
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 25
+text = "Research"
 vertical_alignment = 1
 
 [node name="Blog" type="Control" parent="." unique_id=2076860248]
@@ -391,3 +413,4 @@ text = "Research
 [connection signal="pressed" from="Blog/Upg_blog/upgrade2" to="." method="_on_upgrade_2_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Navigation/HBox/cpu" to="." method="_on_cpu_pressed"]
+[connection signal="pressed" from="Navigation/HBox/Research" to="." method="_on_research_pressed"]
