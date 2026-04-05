@@ -8,6 +8,10 @@ func _ready():
 	for checkbox in get_tree().get_nodes_in_group("Checkbox"):
 		checkbox.toggled.connect(_update_label)
 		_update_label(false) # set initial value
+	if Global.Research == true:
+		$ResourcesCard/card2.show()
+	else:
+		$ResourcesCard/card2.hide()
 
 func _update_label(_toggled_value) -> void:
 	Global.Selected = get_checked_count()

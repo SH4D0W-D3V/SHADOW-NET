@@ -8,7 +8,7 @@ func _ready():
 	if Global.Auto_type == true:
 		$Blog/AutoCont/Upgrade.show()
 		$Blog/AutoCont/Auto.hide()
-	Cpu_btn_setup()
+	Nav_btn_setup()
 	Update_all_txt()
 	
 func _process(_delta: float) -> void:
@@ -44,9 +44,9 @@ func _on_upgrade_pressed() -> void:
 		Global.Dollars -= 480 * pow(2, Global.Auto_type_level - 1)
 		Global.Auto_type_level += 1
 		Update_all_txt()
-		Cpu_btn_setup()
+		Nav_btn_setup()
 			
-func Cpu_btn_setup():
+func Nav_btn_setup():
 	if Global.Auto_type_level >= 4:
 		$Navigation/HBox/cpu.show()
 		if Global.Cpu == true:
@@ -55,6 +55,14 @@ func Cpu_btn_setup():
 			$Navigation/HBox/cpu.text = "Unlock: $4k"
 	else:
 		$Navigation/HBox/cpu.hide()
+	if Global.Auto_type_level >= 6:
+		$Navigation/HBox/Research.show()
+		if Global.Research == true:
+			$Navigation/HBox/Research.text = "Research"
+		else:
+			$Navigation/HBox/Research.text = "Unlock: $30k"
+	else:
+		$Navigation/HBox/Research.hide()
 
 func _on_buy_ads_pressed() -> void:
 	if Global.Dollars >= 800 * pow(2, Global.blog_level):
@@ -86,4 +94,8 @@ func Update_all_txt():
 	$Blog/AutoCont/Label.text = "Auto: lv-" + str(Global.Auto_type_level)
 
 func _on_research_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Research.tscn")
+	if Global.Research == false:
+		if Global.Dollars >= 30000:
+			Global.Research = true
+	else :
+		get_tree().change_scene_to_file("res://Scenes/Research.tscn")

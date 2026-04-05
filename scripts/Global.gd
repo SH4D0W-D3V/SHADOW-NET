@@ -23,19 +23,19 @@ var ClockCycles = 128 * pow(2, level)
 var Cpu_Dollar = 0
 var Cpu_Research_lv:int = 0
 #Research
+var Research: bool = false
 var Research_points:float = 0
+var purchased_ids: Array = []
 
 #----SetUp On Play----
 func _ready() -> void:
 	load_game()
 	setup_auto_save_timer()
-	print(str(Cpu_states[1]))
 #----Save and load data----
 func save_game(): 
 	if reset_mode:
 		clear_save()
 		return
-	print(str(Cpu_states[1]))
 	var save_data = {
 		#Resources
 		"Dollars": Dollars,
@@ -53,7 +53,9 @@ func save_game():
 		"Cpu_Dollar": Cpu_Dollar,
 		"Cpu_Research_lv": Cpu_Research_lv,
 		#Research
+		"Research": Research,
 		"Research_points": Research_points,
+		"purchased_ids": purchased_ids,
 	}
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -61,13 +63,11 @@ func save_game():
 
 func load_game():
 	if not FileAccess.file_exists("user://savegame.json"):
-		print("NO")
 		return 
 	var file = FileAccess.open("user://savegame.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	file.close()
 	if data == null:
-		print("null")
 		return 
 	#resources
 	Dollars     = data["Dollars"]
@@ -86,7 +86,9 @@ func load_game():
 	Cpu_Dollar = data["Cpu_Dollar"]
 	Cpu_Research_lv = data["Cpu_Research_lv"]
 	#Research
+	Research = data["Research"]
 	Research_points = data["Research_points"]
+	purchased_ids = data["purchased_ids"]
 
 func clear_save():
 	if FileAccess.file_exists("user://savegame.json"):
