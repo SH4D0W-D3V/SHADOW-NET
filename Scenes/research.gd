@@ -1,24 +1,26 @@
 extends Control
 
-# Define your items here
+#---- Research items list ----
 var shop_items = [
 	{
-		"name": "Speed Boots",
+		"name": "Add CPU Cores",
 		"unlock_at": 1,
 		"cost": 5,
-		"id": "speed_up"
+		"id": "Add_Cores"
 	},
 	{
-		"name": "Golden Sword",
-		"unlock_at": 500,
-		"cost": 1000,
-		"id": "power_up"
+		"name": "Instant one time Money",
+		"unlock_at": 40,
+		"cost": 50,
+		"id": "insta_money"
 	}
 ]
 
+#---- Ready ----
 func _ready() -> void:
 	refresh_shop()
 
+#---- Other functions ----
 func refresh_shop():
 	for child in $Research/Scroll/VBox.get_children():
 		child.queue_free()
@@ -31,9 +33,10 @@ func refresh_shop():
 func create_button(data):
 	var btn = Button.new()
 	btn.text = data["name"] + " (Cost: " + str(data["cost"]) + ")"
+	btn.custom_minimum_size = Vector2(0,100)
 	btn.pressed.connect(_on_button_pressed.bind(data["id"], data["cost"]))
-	
 	$Research/Scroll/VBox.add_child(btn)
+
 
 func _on_button_pressed(item_id: String, cost: int):
 	if Global.Research_points >= cost:
@@ -47,10 +50,10 @@ func _on_button_pressed(item_id: String, cost: int):
 
 func run_item_logic(id):
 	match id:
-		"speed_up":
-			print("Player is now faster!")
-		"power_up":
-			print("Player is now stronger!")
+		"Add_Cores":
+			Global.Cpu_cores += 1
+		"insta_money":
+			Global.Dollars += util.str_to_num("1T")
 
 func _on_back_pressed() -> void:
 	Global.save_game()

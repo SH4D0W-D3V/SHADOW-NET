@@ -22,6 +22,7 @@ var Cpu_states: Array = [false, false]
 var ClockCycles = 128 * pow(2, level)
 var Cpu_Dollar = 0
 var Cpu_Research_lv:int = 0
+var Cpu_cores:int  = 0
 #Research
 var Research: bool = false
 var Research_points:float = 0
@@ -116,46 +117,14 @@ func _process(delta: float) -> void:
 		Dollars += blog_cost[blog_type] * (blog_level + 1)
 		blog_bytes -= blog_dat[blog_type]*2
 	if Cpu_states[1] == true:
-		Research_points += 0.000001* (ClockCycles /Selected) *pow(2, Cpu_Research_lv/5)* delta
+		Research_points += 0.00001* ((ClockCycles* max(1,Cpu_cores) )/Selected) *pow(2, Cpu_Research_lv/5)* delta
 			
-#----Easy Access Functions----
-#Format Numbers For Lables
-func format_number(value: float) -> String:
-	if value < 1000:
-		return str(round(value))
-	var standard_suffixes = ["", "k", "M", "B", "T"]
-	var exp_1000 = floor(log(value) / log(1000))
-	if exp_1000 < standard_suffixes.size():
-		var unit = standard_suffixes[exp_1000]
-		var scaled_val = value / pow(1000, exp_1000)
-		return "%.2f%s" % [scaled_val, unit]
-	else:
-		var aa_index = int(exp_1000) - 5
-		var alphabet = "abcdefghijklmnopqrstuvwxyz"
-		var first_letter = alphabet[floor(aa_index / 26)]
-		var second_letter = alphabet[aa_index % 26]
-		var unit = str(first_letter) + str(second_letter)
-		var scaled_val = value / pow(1000, exp_1000)
-		return "%.2f%s" % [scaled_val, unit]
 
-#Format clock cycles
-func format_clock_speed(value: float) -> String:
-	if value < 1000:
-		return "%.1f Hz" % value
-	var std_suffixes = ["Hz", "kHz", "MHz", "GHz", "THz", "PHz", "EHz", "ZHz", "YHz"]
-	var exp_1000 = floor(log(value) / log(1000))
-	if exp_1000 < std_suffixes.size():
-		var unit = std_suffixes[exp_1000]
-		var scaled_val = value / pow(1000, exp_1000)
-		return "%.2f %s" % [scaled_val, unit]
-	else:
-		var aa_index = int(exp_1000) - std_suffixes.size()
-		var alphabet = "abcdefghijklmnopqrstuvwxyz"
-		var first = alphabet[floor(aa_index / 26)]
-		var second = alphabet[aa_index % 26]
-		var unit = str(first) + str(second) + "Hz"
-		var scaled_val = value / pow(1000, exp_1000)
-		return "%.2f %s" % [scaled_val, unit]
+
+
+
+
+
 
 
 			

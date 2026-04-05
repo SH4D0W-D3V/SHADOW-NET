@@ -21,6 +21,7 @@ boot_splash/image="uid://b2xah1yy0ds4u"
 [autoload]
 
 Global="*uid://nwwaubsv0l4a"
+util="*uid://b78quyybingy1"
 
 [display]
 
