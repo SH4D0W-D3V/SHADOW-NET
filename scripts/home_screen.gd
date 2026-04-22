@@ -1,12 +1,14 @@
 extends Control
 
+#---- Var ---- 
+
+
 #---- Basic Process ----
 func _ready():
-	$Blog/AutoCont/Upgrade.hide()
-	$Blog/AutoCont/Auto.show()
-	if Global.Auto_type == true:
-		$Blog/AutoCont/Upgrade.show()
-		$Blog/AutoCont/Auto.hide()
+	$Blog/AutoCont/Upgrade.visible = Global.Auto_type
+	$Blog/AutoCont/Auto.visible = !Global.Auto_type
+	$ResourcePanel/ShadowToken.text = "Shadow Tokens: " + util.for_num(Global.ShadowToken)
+	Global.save_game()
 	Nav_btn_setup()
 	Update_all_txt()
 
@@ -47,33 +49,29 @@ func _on_type_pressed() -> void:
 	
 #main Auto mode unlock button
 func _on_auto_pressed() -> void: 
-	if Global.Dollars >=120:
+	if util.buy(120):
 		Global.Auto_type = true
 		$Blog/AutoCont/Upgrade.show()
 		$Blog/AutoCont/Auto.hide()
 		Update_all_txt()
-		Global.Dollars -= 120
 
 # upgrade Automode
 func _on_upgrade_pressed() -> void: 
-	if Global.Dollars >= 480 * pow(2, Global.Auto_type_level - 1):
-		Global.Dollars -= 480 * pow(2, Global.Auto_type_level - 1)
+	if util.buy(480 * pow(2, Global.Auto_type_level - 1)):
 		Global.Auto_type_level += 1
 		Update_all_txt()
 		Nav_btn_setup()
 
 #Upgrade ads
 func _on_buy_ads_pressed() -> void:
-	if Global.Dollars >= 800 * pow(2, Global.blog_level):
-		Global.Dollars -= 800 * pow(2, Global.blog_level)
+	if util.buy(800 * pow(2, Global.blog_level)):
 		Global.blog_level += 1
 		Update_all_txt()
 
 #upgrade blog content
 func _on_upgrade_2_pressed() -> void:
 	if Global.blog_type < 4:
-		if Global.Dollars >= Global.blog_purchase[Global.blog_type]:
-			Global.Dollars -= Global.blog_purchase[Global.blog_type]
+		if util.buy(Global.blog_purchase[Global.blog_type]):
 			Global.blog_type += 1
 			Update_all_txt()
 
@@ -109,3 +107,6 @@ func _on_research_pressed() -> void:
 			Global.Research = true
 	else :
 		get_tree().change_scene_to_file("res://Scenes/Research.tscn")
+
+func _on_dark_web_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/DarkWeb.tscn")

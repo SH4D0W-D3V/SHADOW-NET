@@ -151,6 +151,23 @@ theme_override_font_sizes/font_size = 25
 text = "Research"
 vertical_alignment = 1
 
+[node name="ShadowToken" type="Label" parent="ResourcePanel" unique_id=1664144805]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.342
+anchor_right = 0.634
+anchor_bottom = 0.42100003
+offset_left = -1.9000015
+offset_top = 0.34399414
+offset_right = 0.1519928
+offset_bottom = -0.32803345
+theme_override_colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+theme_override_fonts/font = ExtResource("2_d6d8u")
+theme_override_font_sizes/font_size = 25
+text = "Shadow Tokens:"
+vertical_alignment = 1
+
 [node name="Blog" type="Control" parent="." unique_id=2076860248]
 layout_mode = 1
 anchor_left = 0.24300002
@@ -406,6 +423,13 @@ theme = ExtResource("3_db1cy")
 text = "Research
 "
 
+[node name="DarkWeb" type="Button" parent="Navigation/HBox" unique_id=1231213384]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("3_db1cy")
+text = "Dark Web
+"
+
 [connection signal="pressed" from="Blog/type" to="." method="_on_type_pressed"]
 [connection signal="pressed" from="Blog/AutoCont/Auto" to="." method="_on_auto_pressed"]
 [connection signal="pressed" from="Blog/AutoCont/Upgrade" to="." method="_on_upgrade_pressed"]
@@ -414,3 +438,4 @@ text = "Research
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Navigation/HBox/cpu" to="." method="_on_cpu_pressed"]
 [connection signal="pressed" from="Navigation/HBox/Research" to="." method="_on_research_pressed"]
+[connection signal="pressed" from="Navigation/HBox/DarkWeb" to="." method="_on_dark_web_pressed"]

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://bmje3ujv2wi4c"]
+
+[ext_resource type="FontFile" uid="uid://bg1bb3slcxa8n" path="res://res/JetBrainsMono-VariableFont_wght.ttf" id="1_su73o"]
+
+[resource]
+Label/colors/font_color = Color(0.5882353, 0.7137255, 0.9254902, 1)
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("1_su73o")

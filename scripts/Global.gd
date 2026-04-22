@@ -2,8 +2,8 @@ extends Node
 
 #----Base_Data----
 #Resources
-var Dollars = 0
-var reset_mode = false
+var Dollars: float = 0
+var reset_mode:bool = false
 var save_timer: Timer
 #blog
 var blog_bytes: int = 0
@@ -11,22 +11,24 @@ var Auto_type: bool = 0
 var blog_level: int = 0
 var Auto_type_level: int = 0
 var blog_type: int = 0
-const blog_dat = [100, 10000, 10000000, 1000000000, 10000000000, 100000000000 ]
-const blog_cost = [100, 160000, 160000000, 160000000000, 16000000000000]
-const  blog_purchase = [600000, 4000000000, 2000000000000, 1000000000000000]
+const blog_dat:Array = [100, 10000, 10000000, 1000000000, 10000000000, 100000000000 ]
+const blog_cost:Array = [100, 160000, 160000000, 160000000000, 16000000000000]
+const  blog_purchase:Array = [600000, 4000000000, 2000000000000, 1000000000000000]
 #CPU
 var Cpu: bool = false
 var Selected
-var level = 0
+var level:int = 0
 var Cpu_states: Array = [false, false]
-var ClockCycles = 128 * pow(2, level)
-var Cpu_Dollar = 0
+var ClockCycles:float = 128 * pow(2, level)
+var Cpu_Dollar:int = 0
 var Cpu_Research_lv:int = 0
 var Cpu_cores:int  = 0
 #Research
 var Research: bool = false
 var Research_points:float = 0
 var purchased_ids: Array = []
+#Dark web
+var ShadowToken: int = 0
 
 #----SetUp On Play----
 func _ready() -> void:
@@ -57,6 +59,8 @@ func save_game():
 		"Research": Research,
 		"Research_points": Research_points,
 		"purchased_ids": purchased_ids,
+		#DarkWeb
+		"ShadowToken": ShadowToken,
 	}
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(save_data))
@@ -90,6 +94,8 @@ func load_game():
 	Research = data["Research"]
 	Research_points = data["Research_points"]
 	purchased_ids = data["purchased_ids"]
+	#Dark Web
+	ShadowToken = data["ShadowToken"]
 
 func clear_save():
 	if FileAccess.file_exists("user://savegame.json"):

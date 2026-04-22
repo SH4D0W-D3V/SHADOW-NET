@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://dvtrcae0nbas3"]
+
+[ext_resource type="Script" uid="uid://bbqrtr3fjjur2" path="res://Scenes/dark_web.gd" id="1_02vsb"]
+[ext_resource type="Theme" uid="uid://bmje3ujv2wi4c" path="res://Themes/Labels.tres" id="2_65hmp"]
+[ext_resource type="Theme" uid="uid://selatpb4u8oh" path="res://Themes/Buttons.tres" id="3_13pis"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xof06"]
+bg_color = Color(0.11372549, 0.13725491, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02vsb"]
+bg_color = Color(0.06666667, 0.08627451, 0.12941177, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="DarkWeb" type="Control" unique_id=53284576]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02vsb")
+
+[node name="Background" type="Panel" parent="." unique_id=1397535247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xof06")
+
+[node name="Gamba" type="Control" parent="." unique_id=426819041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Gamba" unique_id=1368306716]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -531.0
+offset_top = 69.0
+offset_right = 531.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme = ExtResource("2_65hmp")
+text = "Randomly visit one of the site and hope you dont get hacked"
+
+[node name="Site 1" type="Button" parent="Gamba" unique_id=337929913]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 203.0
+offset_right = 857.0
+offset_bottom = 785.0
+theme = ExtResource("3_13pis")
+theme_override_font_sizes/font_size = 40
+text = "Site 1"
+
+[node name="Site 2" type="Button" parent="Gamba" unique_id=441957103]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 202.0
+offset_right = 1632.0
+offset_bottom = 784.0
+theme = ExtResource("3_13pis")
+theme_override_font_sizes/font_size = 40
+text = "Site 2"
+
+[node name="Return" type="Button" parent="Gamba" unique_id=1913597657]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -367.0
+offset_top = -172.0
+offset_right = -72.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_13pis")
+text = "Retun safely"
+
+[node name="Status" type="Label" parent="Gamba" unique_id=360242122]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -246.0
+offset_right = 543.0
+offset_bottom = -26.0
+grow_vertical = 0
+theme = ExtResource("2_65hmp")
+text = "stats"
+
+[node name="Main menu" type="Control" parent="." unique_id=385322612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="Main menu" unique_id=1968199346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xof06")
+
+[node name="Sub Title2" type="Label" parent="Main menu" unique_id=1155736069]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -336.0
+offset_top = 240.0
+offset_right = 348.0
+offset_bottom = 291.0
+grow_horizontal = 2
+theme = ExtResource("2_65hmp")
+theme_override_font_sizes/font_size = 38
+text = "Do you wish to enter Dark web?"
+
+[node name="Sub Title" type="Label" parent="Main menu" unique_id=112693834]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.0
+offset_top = 62.0
+offset_right = 366.0
+offset_bottom = 260.0
+grow_horizontal = 2
+theme = ExtResource("2_65hmp")
+theme_override_font_sizes/font_size = 150
+text = "DARK WEB"
+
+[node name="Yes" type="Button" parent="Main menu" unique_id=1074452871]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -178.0
+offset_right = 342.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_13pis")
+theme_override_font_sizes/font_size = 50
+text = "Yes"
+
+[node name="Label" type="Label" parent="Main menu/Yes" unique_id=28715298]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.5
+offset_top = -37.0
+offset_right = 20.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_65hmp")
+theme_override_font_sizes/font_size = 20
+text = "Pay Shadow token - 5"
+
+[node name="Label" type="Label" parent="Main menu" unique_id=1643602585]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -26.5
+offset_right = 338.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_65hmp")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_02vsb")
+text = "Dark web is scary place. you might not make it out safely"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="." unique_id=2092504949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = 312.0
+offset_right = 342.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_13pis")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[connection signal="pressed" from="Gamba/Site 1" to="." method="_on_site_1_pressed"]
+[connection signal="pressed" from="Gamba/Site 2" to="." method="_on_site_2_pressed"]
+[connection signal="pressed" from="Main menu/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

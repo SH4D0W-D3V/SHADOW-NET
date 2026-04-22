@@ -62,3 +62,10 @@ func get_double_letter_multiplier(suffix: String) -> float:
 	var c2 = suffix.unicode_at(1) - 97
 	var exponent = 15 + ((c1 * 26) + c2) * 3
 	return pow(10, exponent)
+	
+func buy(cost: float) -> bool:
+	if Global.Dollars >= cost:
+		Global.Dollars -= cost
+		return true
+	else:
+		return false

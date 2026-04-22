@@ -426,6 +426,7 @@ offset_left = 665.0
 offset_top = 733.0
 offset_right = 972.0
 offset_bottom = 834.0
+theme = ExtResource("3_8rmcc")
 text = "Back"
 
 [connection signal="pressed" from="Container/upgrade" to="." method="_on_upgrade_pressed"]

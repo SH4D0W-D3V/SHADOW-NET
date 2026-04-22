@@ -8,15 +8,9 @@ func _ready():
 	update_all_txt()
 	for checkbox in get_tree().get_nodes_in_group("Checkbox"):
 		checkbox.toggled.connect(_update_label)
-		_update_label(false) # set initial value
-	if Global.Research == true:
-		$ResourcesCard/card2.show()
-	else:
-		$ResourcesCard/card2.hide()
-	if Global.Cpu_cores > 0:
-		$"Container/Add core".show()
-	else:
-		$"Container/Add core".hide()
+		_update_label(false)
+		$ResourcesCard/card2.visible = Global.Research
+		$"Container/Add core".visible = Global.Cpu_cores > 0
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/home_screen.tscn")
@@ -46,8 +40,7 @@ func _process(_delta: float) -> void:
 
 #---- CPU stats ---- 
 func _on_upgrade_pressed() -> void:
-	if Global.Dollars > 30720 * pow(4, Global.level):
-		Global.Dollars -= 30720 * pow(4, Global.level)
+	if util.buy(30720 * pow(4, Global.level)):
 		Global.level += 1
 		Global.ClockCycles = 128 * pow(2, Global.level)
 		upd_a_cc()
@@ -83,14 +76,12 @@ func _update_label(_toggled_value) -> void:
 	upd_a_cc()
 
 func _on_upgrade_1_pressed() -> void:
-	if Global.Dollars >= 26000 * pow(10, Global.Cpu_Dollar):
-		Global.Dollars -= 26000 * pow(10, Global.Cpu_Dollar)
+	if util.buy(26000 * pow(10, Global.Cpu_Dollar)):
 		Global.Cpu_Dollar += 1
 		update_all_txt()
 
 func _on_upgrade_2_pressed() -> void:
-	if Global.Dollars >= 1700000 * pow(10, Global.Cpu_Research_lv):
-		Global.Dollars -= 1700000 * pow(10, Global.Cpu_Research_lv)
+	if util.buy(1700000 * pow(10, Global.Cpu_Research_lv)):
 		Global.Cpu_Research_lv += 1
 		update_all_txt()
 	

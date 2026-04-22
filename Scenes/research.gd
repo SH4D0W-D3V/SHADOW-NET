@@ -16,9 +16,15 @@ var shop_items = [
 	}
 ]
 
+var shop_data = {
+	"ShadowToken": {"text": "Shadown Token 1\nResearch - 10", "cost": 10, "currency": "research"},
+	"research_kit": {"text": "", "cost": 10, "currency": "research"},
+	"unlock_cpu": {"text": "Unlock CPU", "cost": 4000, "currency": "dollars"}
+}
 #---- Ready ----
 func _ready() -> void:
 	refresh_shop()
+	create_shop()
 
 #---- Other functions ----
 func refresh_shop():
@@ -36,7 +42,6 @@ func create_button(data):
 	btn.custom_minimum_size = Vector2(0,100)
 	btn.pressed.connect(_on_button_pressed.bind(data["id"], data["cost"]))
 	$Research/Scroll/VBox.add_child(btn)
-
 
 func _on_button_pressed(item_id: String, cost: int):
 	if Global.Research_points >= cost:
@@ -58,3 +63,38 @@ func run_item_logic(id):
 func _on_back_pressed() -> void:
 	Global.save_game()
 	get_tree().change_scene_to_file("res://Scenes/home_screen.tscn")
+
+func _on_shop_item_purchased(item_id: String):
+	var item = shop_data[item_id]
+	var cost = item["cost"]
+	var type = item["currency"]
+	var can_afford = false
+	match type:
+		"dollars":
+			if Global.Dollars >= cost: can_afford = true
+		"research":
+			if Global.Research_points >= cost: can_afford = true
+	if can_afford:
+		match type:
+			"dollars": Global.Dollars -= cost
+			"research":
+				Global.Research_points -= cost
+				print("res")
+		match item_id:
+			"ShadowToken":
+				Global.ShadowToken += 1
+			"research_kit":
+				print("hi")
+			"unlock_cpu":
+				Global.Cpu = true
+	else:
+		print("Insufficient " + type + "!")
+		
+func create_shop():
+	for item_id in shop_data:
+		var data = shop_data[item_id]
+		var btn = Button.new()
+		btn.text = data["text"] + " - $" + str(data["cost"])
+		btn.custom_minimum_size = Vector2(0, 100)
+		btn.pressed.connect(_on_shop_item_purchased.bind(item_id))
+		$Purchase/Scroll/VBox.add_child(btn)
